@@ -57,7 +57,7 @@ class Admin(webapp.RequestHandler):
 		user = users.get_current_user()
 		template_values = {'user': user, 'twitteruser': twitteruser, 'twitterpass': twitterpass, 'serverlist': serverlist, 'prowlkey': prowlkey, 'adminoptions': adminoptions,}
 		path = os.path.join(os.path.dirname(__file__), 'admin.html')
-		self.response.out.write(template.render(path, template_values))
+		self.response.out.write(str(template.render(path, template_values)))
         
 class StoreServer(webapp.RequestHandler):
 	def post(self):	

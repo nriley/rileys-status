@@ -41,7 +41,7 @@ class MainHandler(webapp.RequestHandler):
         user = users.get_current_user()
         template_values = { 'user': user, 'serverlist': serverlist, }
         path = os.path.join(os.path.dirname(__file__), 'frontpage.html')
-        self.response.out.write(template.render(path, template_values))
+        self.response.out.write(str(template.render(path, template_values)))
 
 def main():
   application = webapp.WSGIApplication([('/', MainHandler)],
